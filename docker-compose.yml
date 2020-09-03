@@ -16,5 +16,6 @@ services:
       - ./mix.exs:/opt/wallaby/mix.exs:ro
       - ./mix.lock:/opt/wallaby/mix.lock:ro
       - ./entrypoint.sh:/opt/wallaby/entrypoint.sh:ro
+      - ./integration_test:/opt/wallaby/integration_test:ro
     stdin_open: true
     tty: true
