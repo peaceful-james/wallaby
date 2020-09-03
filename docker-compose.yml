@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+
+  wallaby-test:
+    image: wallaby-test:local
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./config:/opt/wallaby/config:ro
+      - ./lib:/opt/wallaby/lib:ro
+      - ./priv:/opt/wallaby/priv
+      - ./test:/opt/wallaby/test:ro
+      - ./mix.exs:/opt/wallaby/mix.exs:ro
+      - ./mix.lock:/opt/wallaby/mix.lock:ro
+      - ./entrypoint.sh:/opt/wallaby/entrypoint.sh:ro
+    stdin_open: true
+    tty: true
